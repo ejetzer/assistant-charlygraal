@@ -1,0 +1,8 @@
+*_env/
+.DS_Store
+.spyproject
+*.iso
+*.png
+*.xls
+*.xlsx
+
