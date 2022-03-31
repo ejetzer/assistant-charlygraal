@@ -10,20 +10,20 @@ Created on Wed Oct 13 09:46:37 2021
 @author: ejetzer
 """
 
-from datetime import date
 from pathlib import Path
 from tkinter import Tk, Frame, filedialog, Button
-from tkinter.constants import DISABLED, NORMAL
 
 import pandas
 
 from matplotlib import pyplot
+
 
 def conv(x):
     if isinstance(x, str):
         x = x.replace(',', '.')
 
     return float(x)
+
 
 class Assistant(Frame):
 
@@ -57,7 +57,7 @@ G4 F1
 G1 Z1."""
 
             for _, (x, y) in self.df.iterrows():
-                 print(modèle.format(x, y), file=f)
+                print(modèle.format(x, y), file=f)
 
         self.bouton.config(fg='red', text='Dessin...')
 
@@ -68,10 +68,12 @@ G1 Z1."""
         self.bouton.config(fg='green', text='Lancer')
 
     def pack(self, *args, **kargs):
-        self.bouton = Button(self, text='Lancer', fg='green', command=lambda: self.ouvrir())
+        self.bouton = Button(self, text='Lancer', fg='green',
+                             command=lambda: self.ouvrir())
         self.bouton.pack()
 
         super().pack(*args, **kargs)
+
 
 if __name__ == '__main__':
     racine = Tk()

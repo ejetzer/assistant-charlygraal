@@ -10,9 +10,10 @@ Created on Wed Oct 13 09:46:37 2021
 @author: ejetzer
 """
 
+from datetime import date
+
 import pandas
 
-from datetime import date
 from matplotlib import pyplot
 
 # Régler l'origine
@@ -38,19 +39,22 @@ G1 Z-1.
 G4 F1
 G1 Z1."""
 
+
 def conv(x):
     if isinstance(x, str):
         x = x.replace(',', '.')
 
     return float(x)
 
-df = pandas.read_excel('trous.xlsx', sheet_name=0, header=0, usecols=(1, 2), converters={0: conv, 1: conv})
+
+df = pandas.read_excel('trous.xlsx', sheet_name=0, header=0,
+                       usecols=(1, 2), converters={0: conv, 1: conv})
 print(df)
 
 
 with open(fichier, 'a') as f:
     for _, (x, y) in df.iterrows():
-         print(modèle.format(x, y), file=f)
+        print(modèle.format(x, y), file=f)
 
 df.plot(x=0, y=1, kind='scatter')
 pyplot.show()

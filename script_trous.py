@@ -11,6 +11,7 @@ Created on Wed Oct 13 09:46:37 2021
 """
 
 from datetime import date
+
 from matplotlib import pyplot
 
 # Régler l'origine
